@@ -125,10 +125,12 @@ em {
   margin-top: 20px;
   color: #fff; }
 
-.zoom-page {
+.comm, .zoom-page, .loadingif, .bg, .pt-page-moveCircle, .hl_enter, .hl_hint, .arrow, .p2zc, .slogan1, .slogan2, .slogan3, .slogan4, .p3stop, .p3zc, .p4zc, .p4stop, .p5zc, .p6zc, .line, .p7zc, .vehicle {
   position: absolute;
+  left: 50%; }
+
+.zoom-page {
   top: 0;
-  left: 50%;
   width: 750px;
   height: 1334px;
   margin-left: -375px;
@@ -145,9 +147,7 @@ em {
   height: 50%; }
 
 .loadingif {
-  position: absolute;
   top: 304px;
-  left: 50%;
   width: 94px;
   height: 33px;
   margin-left: -47px;
@@ -155,9 +155,7 @@ em {
   background-size: 100%; }
 
 .bg {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187px; }
@@ -205,9 +203,7 @@ em {
   height: 50%; }
 
 .pt-page-moveCircle {
-  position: absolute;
   z-index: 996;
-  left: 50%;
   width: 100px;
   height: 100px;
   margin-left: -50px;
@@ -224,9 +220,7 @@ em {
   75% {
     -webkit-transform: translateY(5px); } }
 .hl_enter {
-  position: absolute;
   top: 483px;
-  left: 50%;
   width: 122px;
   height: 31px;
   margin-left: -61px;
@@ -234,9 +228,7 @@ em {
   background-size: 100%; }
 
 .hl_hint {
-  position: absolute;
   top: 483px;
-  left: 50%;
   width: 122px;
   height: 31px;
   margin-left: -61px;
@@ -244,9 +236,7 @@ em {
   background-size: 100%; }
 
 .arrow {
-  position: absolute;
   top: 524px;
-  left: 50%;
   width: 32px;
   height: 22px;
   margin-left: -16px;
@@ -255,9 +245,7 @@ em {
 
 /* p2 */
 .p2zc {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187px; }
@@ -273,10 +261,8 @@ em {
   background: black; }
 
 .slogan1 {
-  position: absolute;
   z-index: 2;
   top: 106px;
-  left: 50%;
   width: 280px;
   height: 298px;
   margin-left: -140px;
@@ -284,10 +270,8 @@ em {
   background-size: 100%; }
 
 .slogan2 {
-  position: absolute;
   z-index: 2;
   top: 106px;
-  left: 50%;
   width: 280px;
   height: 271px;
   margin-left: -140px;
@@ -295,10 +279,8 @@ em {
   background-size: 100%; }
 
 .slogan3 {
-  position: absolute;
   z-index: 2;
   top: 106px;
-  left: 50%;
   width: 280px;
   height: 298px;
   margin-left: -140px;
@@ -306,10 +288,8 @@ em {
   background-size: 100%; }
 
 .slogan4 {
-  position: absolute;
   z-index: 5;
   top: 106px;
-  left: 50%;
   width: 280px;
   height: 298px;
   margin-left: -140px;
@@ -335,10 +315,8 @@ em {
 
 /* p3 */
 .p3stop {
-  position: absolute;
   top: 0;
   left: 0;
-  left: 50%;
   width: 350px;
   height: 667px;
   margin-left: -175px;
@@ -346,27 +324,21 @@ em {
   background-size: 100%; }
 
 .p3zc {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187px; }
 
 /* p4 */
 .p4zc {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187px; }
 
 .p4stop {
-  position: absolute;
   top: 0;
   left: 0;
-  left: 50%;
   width: 350px;
   height: 667px;
   margin-left: -175px;
@@ -375,45 +347,35 @@ em {
 
 /* p5 */
 .p5zc {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187px; }
 
 /* p6 */
 .p6zc {
-  position: absolute;
   top: -8px;
-  left: 50%;
   width: 298px;
   height: 544px;
   margin-left: -149px; }
 
 .line {
-  position: absolute;
   top: 0;
-  left: 50%;
   width: 375px;
   height: 667px;
   margin-left: -187.5px; }
 
 /* p7 */
 .p7zc {
-  position: absolute;
   z-index: 991;
   top: 83px;
-  left: 50%;
   width: 310px;
   height: 470px;
   margin-left: -155px; }
 
 .vehicle {
-  position: absolute;
-  z-index: 992;
+  z-index: 991;
   top: 243px;
-  left: 50%;
   width: 188px;
   height: 136px;
   margin-left: -94px;
@@ -422,11 +384,11 @@ em {
 
 .btncomm, .btn_start, .btn_share {
   position: absolute;
-  background-size: 100%;
   z-index: 992;
   top: 300px;
+  top: 126px;
   height: 42px;
-  top: 126px; }
+  background-size: 100%; }
 
 .btn_start {
   left: 234px;

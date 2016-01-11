@@ -165,15 +165,19 @@ em
     margin-top: 20px;
     color: #fff;
 }
-.zoom-page
+.comm
 {
     position: absolute;
-    top: 0;
     left: 50%;
+}
+.zoom-page
+{
+    top: 0;
     width: 750px;
     height: 1334px;
     margin-left: -375px;
     -webkit-transform-origin: 50% 0;
+    @extend .comm;
 }
 .hide
 {
@@ -189,23 +193,21 @@ em
 }
 .loadingif
 {
-    position: absolute;
     top: 304px;
-    left: 50%;
     width: 94px;
     height: 33px;
     margin-left: -47px;
     background: url(../img/loading.gif);
     background-size: 100%;
+    @extend .comm;
 }
 .bg
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187px;
+    @extend .comm;
 }
 #percentWrap
 {
@@ -257,13 +259,12 @@ em
 }
 .pt-page-moveCircle
 {
-    position: absolute;
     z-index: 996;
-    left: 50%;
     width: 100px;
     height: 100px;
     margin-left: -50px;
     -webkit-animation: moveCircle linear 2.2s infinite;
+    @extend .comm;
 }
 @-webkit-keyframes moveCircle
 {
@@ -285,46 +286,42 @@ em
 }
 .hl_enter
 {
-    position: absolute;
     top: 483px;
-    left: 50%;
     width: 122px;
     height: 31px;
     margin-left: -61px;
     background: url(../img/hl_enter.png);
     background-size: 100%;
+    @extend .comm;
 }
 .hl_hint
 {
-    position: absolute;
     top: 483px;
-    left: 50%;
     width: 122px;
     height: 31px;
     margin-left: -61px;
     background: url(../img/hl_hint.png);
     background-size: 100%;
+    @extend .comm;
 }
 .arrow
 {
-    position: absolute;
     top: 524px;
-    left: 50%;
     width: 32px;
     height: 22px;
     margin-left: -16px;
     background: url(../img/arrow.png);
     background-size: 100%;
+    @extend .comm;
 }
 /* p2 */
 .p2zc
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187px;
+    @extend .comm;
 }
 .shadow
 {
@@ -339,51 +336,47 @@ em
 }
 .slogan1
 {
-    position: absolute;
     z-index: 2;
     top: 106px;
-    left: 50%;
     width: 280px;
     height: 298px;
     margin-left: -140px;
     background: url(../img/slogan1.png);
     background-size: 100%;
+    @extend .comm;
 }
 .slogan2
 {
-    position: absolute;
     z-index: 2;
     top: 106px;
-    left: 50%;
     width: 280px;
     height: 271px;
     margin-left: -140px;
     background: url(../img/slogan2.png);
     background-size: 100%;
+    @extend .comm;
 }
 .slogan3
 {
-    position: absolute;
     z-index: 2;
     top: 106px;
-    left: 50%;
     width: 280px;
     height: 298px;
     margin-left: -140px;
     background: url(../img/slogan3.png);
     background-size: 100%;
+    @extend .comm;
 }
 .slogan4
 {
-    position: absolute;
     z-index: 5;
     top: 106px;
-    left: 50%;
     width: 280px;
     height: 298px;
     margin-left: -140px;
     background: url(../img/slogan4.png);
     background-size: 100%;
+    @extend .comm;
 }
 .phand
 {
@@ -407,126 +400,110 @@ em
 /* p3 */
 .p3stop
 {
-    position: absolute;
     top: 0;
     left: 0;
-    left: 50%;
     width: 350px;
     height: 667px;
     margin-left: -175px;
     background: url(../img/p3stop.jpg);
     background-size: 100%;
+    @extend .comm;
 }
-
 .p3zc
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187px;
+    @extend .comm;
 }
 /* p4 */
 .p4zc
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187px;
+    @extend .comm;
 }
 .p4stop
 {
-    position: absolute;
     top: 0;
     left: 0;
-    left: 50%;
     width: 350px;
     height: 667px;
     margin-left: -175px;
     background: url(../img/p4stop.jpg);
     background-size: 100%;
+    @extend .comm;
 }
 /* p5 */
 .p5zc
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187px;
+    @extend .comm;
 }
 /* p6 */
 .p6zc
 {
-    position: absolute;
     top: -8px;
-    left: 50%;
     width: 298px;
     height: 544px;
     margin-left: -149px;
+    @extend .comm;
 }
 .line
 {
-    position: absolute;
     top: 0;
-    left: 50%;
     width: 375px;
     height: 667px;
     margin-left: -187.5px;
+    @extend .comm;
 }
 /* p7 */
 .p7zc
 {
-    position: absolute;
     z-index: 991;
     top: 83px;
-    left: 50%;
     width: 310px;
     height: 470px;
     margin-left: -155px;
+    @extend .comm;
 }
 .vehicle
 {
-    position: absolute;
-    z-index: 992;
+    z-index: 991;
     top: 243px;
-    left: 50%;
     width: 188px;
     height: 136px;
     margin-left: -94px;
     background: url(../img/vehicle.png);
     background-size: 400%;
+    @extend .comm;
 }
 .btncomm
 {
     position: absolute;
-    background-size: 100%;
     z-index: 992;
     top: 300px;
-    height: 42px;
     top: 126px;
+    height: 42px;
+    background-size: 100%;
 }
 .btn_start
 {
-
-    
     left: 234px;
     width: 120px;
     background: url(../img/btn_start.png);
     @extend .btncomm;
-    
 }
 .btn_share
 {
-
-
     left: 379px;
     width: 135px;
     background: url(../img/btn_share.png);
-     @extend .btncomm;
-
+    @extend .btncomm;
 }
