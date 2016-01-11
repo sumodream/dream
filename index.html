@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="cache-control" content="no-cache">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<title>dream</title>
+</head>
+<body style="overflow: hidden;">
+	<canvas id="bg" width="750" height="1334" class="bg"></canvas>
+	<!-- 预加载 -->
+	<div id="loading" style="font-size: 20px; display:none;">
+		<div class="zoom-page">
+			<canvas id="loadpic" width="750" height="1334" class="loadpic"></canvas>
+			<div class="loadingif"></div>
+		</div>
+		<div id="percentWrap" >0%</div>
+	</div>
+	<!-- 预加载  end -->
+	<!-- 竖屏提醒 -->
+	<div id="orientLayer" class="mod-orient-layer">
+		<div class="mod-orient-layer__content"> <i class="icon-wx mod-orient-layer__icon-orient"></i>
+			<div class="mod-orient-layer__desc">为了更好的体验,请使用竖屏浏览</div>
+		</div>
+	</div>
+	<!-- 预加载  end -->
+	<!-- 页面内容-->
+	<div id="pageWrap" style="display:none;">
+		<div class="zoom-page">
+			<div class="text">
+				<canvas id="word" width="750" height="1334" class="word"></canvas>
+			</div>
+			<div class="p1">
+				<canvas id="p1zc" width="750" height="1334" class="p1zc"></canvas>
+				<div class="pt-page-moveCircle p1btn hide">
+					<div class="hl_enter"></div>
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<div class="p2">
+				<canvas id="p2zc" width="750" height="1334" class="p2zc" ></canvas>
+				<div class="p2stop1 hide">
+					<div class="slogan1"></div>
+					<div class="p1hand1"></div>
+					<div class="shadow"></div>
+				</div>
+				<div class="p2stop2 hide">
+					<div class="slogan2"></div>
+					<div class="p1hand1"></div>
+					<div class="shadow"></div>
+					<div class="p3stop"></div>
+				</div>
+			</div>
+			<div class="p3">
+				<canvas id="p3zc" width="750" height="1334" class="p3zc" ></canvas>
+				<div class="p3stop1 hide">
+					<div class="slogan3"></div>
+					<div class="p1hand1"></div>
+					<div class="shadow"></div>
+					<div class="p4stop"></div>
+				</div>
+			</div>
+			<div class="p4">
+				<canvas id="p4zc" width="750" height="1334" class="p4zc" ></canvas>
+			</div>
+			<div class="p5">
+				<canvas id="p5zc" width="750" height="1334" class="p5zc" ></canvas>
+				<div class="p5stop1 hide">
+					<div class="slogan4"></div>
+					<div class="p1hand1"></div>
+					<div class="shadow"></div>
+				</div>
+			</div>
+			<div class="p6 hide">
+				<canvas id="p6zc" width="750" height="1334" class="p6zc"></canvas>
+				<canvas id="line" width="750" height="1334" class="line"></canvas>
+			</div>
+			<div class="p7 hide">
+				<canvas id="p7zc" width="750" height="1334" class="p7zc"></canvas>
+				<div class="vehicle"></div>
+				<div class="btn">
+					<div class="btn_start"></div>
+					<div class="btn_share"></div>
+				</div>
+				<div class="pt-page-moveCircle">
+					<div class="hl_hint"></div>
+					<div class="arrow"></div>
+				</div>
+			</div>
+			<canvas id="phand" width="750" height="1334" class="phand"></canvas>
+			<div class="music">
+				<canvas id="volume" width="108" height="114" class="volume"></canvas>
+				<div class="volumeoff hide"></div>
+			</div>
+		</div>
+	</div>
+	<!-- 页面内容  end-->
+</body>
+	<script src="js/easeljs-NEXT.combined.js"></script>
+	<script src="js/easeljs-0.8.1.min.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/pxloader-all.min.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+				var arrya = [
+						"bg0.jpg"
+					];
+					var arryb = [
+						"loading.gif"
+					];
+					var baseUrl = 'img/',  
+					    loader = new PxLoader(); 
+					var loaderFile = new PxLoader();
+				 	for(var i=0; i < arrya.length; i++) { 
+					        var imageUrl = baseUrl + arrya[i]; 
+				            pxImage = new PxLoaderImage(imageUrl); 
+					        pxImage.imageNumber = i + 1; 
+					        loaderFile.add(pxImage); 
+					    }; 
+				    for(var i=0; i < arryb.length; i++) { 
+				        var imageUrl = baseUrl + arryb[i]; 
+			            pxImage = new PxLoaderImage(imageUrl); 
+				        pxImage.imageNumber = i + 1; 
+				        loader.add(pxImage); 
+				    }; 					
+					loader.start(); 
+					loaderFile.addProgressListener(function(e){
+						var percent = Math.round((e.completedCount / e.totalCount) * 100);
+						$("#percentWrap").html(percent + "%");
+					});
+					loaderFile.addCompletionListener(function(e) {
+			    		$("#loading").remove();
+						$("#pageWrap").css("display", "block");						
+					});				
+			    	loader.addCompletionListener(function(e) {
+			    		$("#loading").show();
+			    		loaderFile.start();
+					});
+			    	loader.addProgressListener(function(e){
+					});				
+	</script></html>

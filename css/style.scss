@@ -1,0 +1,532 @@
+/* reset */
+*
+{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+}
+body
+{
+    z-index: -1;
+    width: 100%;
+    -webkit-user-select: auto;
+    color: #222;
+    background: #23303d;
+    -webkit-touch-callout: inherit;
+}
+a
+{
+    text-decoration: none;
+    color: #878787;
+    -webkit-tap-highlight-color: transparent;
+}
+a:hover
+{
+    text-decoration: none;
+}
+div
+{
+    border: none;
+}
+button,
+input,
+select,
+textarea
+{
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+dt,
+dd
+{
+    display: inline-block;
+}
+textarea,
+input
+{
+    resize: none;
+    outline: none;
+}
+textarea
+{
+    resize: none;
+    -webkit-appearance: none;
+}
+ul,
+ol,
+li
+{
+    list-style: none;
+}
+em
+{
+    font-style: normal;
+}
+@-webkit-keyframes rotation
+{
+    10%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+    50%,
+    60%
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    90%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+    100%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+}
+@keyframes rotation
+{
+    10%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+    50%,
+    60%
+    {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+    90%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+    100%
+    {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg);
+    }
+}
+#orientLayer
+{
+    display: none;
+}
+@media screen and (min-aspect-ratio: 13 / 8)
+{
+    #orientLayer
+    {
+        display: block;
+    }
+}
+.mod-orient-layer
+{
+    position: fixed;
+    z-index: 9997;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+.mod-orient-layer__content
+{
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    margin-top: -75px;
+    text-align: center;
+}
+.mod-orient-layer__icon-orient
+{
+    display: inline-block;
+    width: 67px;
+    height: 109px;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    -webkit-animation: rotation infinite 1.5s ease-in-out;
+            animation: rotation infinite 1.5s ease-in-out;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAXVBMVEUAAAD29vb////x8fH////////x8fH5+fn29vby8vL////5+fn39/f6+vr////x8fH////////+/v7////09PT////x8fH39/f////////////////////x8fH///+WLTLGAAAAHXRSTlMAIpML+gb4ZhHWn1c2gvHBvq1uKJcC6k8b187lQ9yhhboAAAQYSURBVHja7d3blpowFIDhTUIAOchZDkre/zE7ycySrbUUpsRN2/1fzO18KzEqxEVgTiZNfgmmtxRc8iaR8HNe8x4BtjQePKayYCIoyBSgvNNE1AkNSHqZyLqk97EgUCCHBzZ5mkg7ScvIJuIyOyXBRFxgpqWZyGsAZLB1KjsJi8nutHU4JCRbFRH8tmirI9k8Jx2sqNs8K/m0LQkrktO2crgcgXGB4AiTEsB0hJfo9MGgX7CGcYiYwQxmMOOvZwRhBG8tCoMXjBDeXvWCEcHbi14wgCBmMIMZzGAGM5jxETNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxA8cMHDNwzMAxY6E2rUQxnH2tz9cirlJFwFBJedaPnUv0M7++egPDE8iAJcIDmxwH5wwv9vUviw2kLbVO3TJU5uul/EyB0FoLp4x60PdGUd3qPurrWyjGGTc05u+1dcgI7/+tCCPARWGhH7o5Y7RCf+bH9ctXLp6v2BVDxfqz0oPXeSVaNtINo/1SXDv4dck8IIkbhtC2ol+iouEonTBCbYvVMnXOjxww6s/RFrBUpXHh/gw1rHj5d/qhYn9Gpk2FWh6xRBRX5Oj3Znh2Sq49/L6+y8pB26q9GbE2dbA2mVbx6I+7MfBglLCttm73ZQi7AD3iL4HqjFYJHSPRppqaUaJ3ATpGa+ckpGak2hRRMyqjGMkvl+xyFeSMwjAqcsZgGDdyhl0oNTnDN4yenJGZFGxNChP5/Y3efh6SM2rDOJMzboYxkDMqwyjIGcIw6F+io2FU1IxIm1JqRmgXSkvNKNCXeTpGrU0JNSO2c6LIGPgCS8AuDHz9ta0SXWDtxoDRH+MqlbC2Dt2G2JFRadtQZt2qq/orGowdGb2euxYiqWEpVWhTBnszoNAPdStuQwxqf0aocdWKW4Z+DfszIh8pxJqbuCE4YAC+4bm0evtipjpgJHeFnyyt1Ku2xa0bhjxr27p75rECNwyI9ZwvXkHq+7aTaMEV44YYy/spfgjgjNHaWW+GeUhGEX7tLlVinIFDDSgnOwhi1V6bU0b6tVS9eAERe863g4dRrtiHdc6o+nn5vtyVVgR79Cqt4uL6gfHPQyGqtP2vf7HADGbcYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JiBYwaOGThm4JjhtOM+J/AgT008yDMkN/dPP9hzS8zAMQN3OEYeekp5YU7KOKXwVXqiY+QS7smcinGKABWdiBgpPJTSMHJ4KidhhPBUSMLw4CmPhKHgKUXCkHsygum71ftNSgCX6bsl8FQyfbcL5EdYsDk0R3j7aiA5wpt5AjKg/2gLJEBD/0Hf2OOf/vRrj6z/7GtP4B3nMKyjHA12kIPSjnJs3FEO0TvKkYJHOWCR+rjJH0Vn6fI5PjNbAAAAAElFTkSuQmCC');
+    -webkit-background-size: 67px;
+            background-size: 67px;
+}
+.mod-orient-layer__desc
+{
+    font-size: 15px;
+    margin-top: 20px;
+    color: #fff;
+}
+.zoom-page
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 750px;
+    height: 1334px;
+    margin-left: -375px;
+    -webkit-transform-origin: 50% 0;
+}
+.hide
+{
+    display: none;
+}
+/* loading */
+.loadpic
+{
+    position: absolute;
+    top: -64px;
+    left: 174px;
+    height: 50%;
+}
+.loadingif
+{
+    position: absolute;
+    top: 304px;
+    left: 50%;
+    width: 94px;
+    height: 33px;
+    margin-left: -47px;
+    background: url(../img/loading.gif);
+    background-size: 100%;
+}
+.bg
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187px;
+}
+#percentWrap
+{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    color: red;
+}
+/* volume */
+.music
+{
+    z-index: 999;
+}
+.volume
+{
+    position: absolute;
+    z-index: 999;
+    top: 11px;
+    left: 473px;
+    width: 54px;
+    height: 57px;
+}
+.volumeoff
+{
+    position: absolute;
+    z-index: 999;
+    top: 14px;
+    left: 480px;
+    width: 44px;
+    height: 57px;
+    background: url(../img/volume.png) 5px 0 no-repeat;
+    background-size: 500%;
+}
+/* word */
+.word
+{
+    position: absolute;
+    top: -43px;
+    left: 174px;
+    height: 50%;
+}
+/* p1 */
+.p1zc
+{
+    position: absolute;
+    top: 58px;
+    left: 174px;
+    height: 50%;
+}
+.pt-page-moveCircle
+{
+    position: absolute;
+    z-index: 996;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    -webkit-animation: moveCircle linear 2.2s infinite;
+}
+@-webkit-keyframes moveCircle
+{
+    0%,
+    100%,
+    50%
+    {
+        -webkit-transform: translateY(0px);
+        -webkit-opacity: .8;
+    }
+    25%
+    {
+        -webkit-transform: translateY(-5px);
+    }
+    75%
+    {
+        -webkit-transform: translateY(5px);
+    }
+}
+.hl_enter
+{
+    position: absolute;
+    top: 483px;
+    left: 50%;
+    width: 122px;
+    height: 31px;
+    margin-left: -61px;
+    background: url(../img/hl_enter.png);
+    background-size: 100%;
+}
+.hl_hint
+{
+    position: absolute;
+    top: 483px;
+    left: 50%;
+    width: 122px;
+    height: 31px;
+    margin-left: -61px;
+    background: url(../img/hl_hint.png);
+    background-size: 100%;
+}
+.arrow
+{
+    position: absolute;
+    top: 524px;
+    left: 50%;
+    width: 32px;
+    height: 22px;
+    margin-left: -16px;
+    background: url(../img/arrow.png);
+    background-size: 100%;
+}
+/* p2 */
+.p2zc
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187px;
+}
+.shadow
+{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .25;
+    background: black;
+}
+.slogan1
+{
+    position: absolute;
+    z-index: 2;
+    top: 106px;
+    left: 50%;
+    width: 280px;
+    height: 298px;
+    margin-left: -140px;
+    background: url(../img/slogan1.png);
+    background-size: 100%;
+}
+.slogan2
+{
+    position: absolute;
+    z-index: 2;
+    top: 106px;
+    left: 50%;
+    width: 280px;
+    height: 271px;
+    margin-left: -140px;
+    background: url(../img/slogan2.png);
+    background-size: 100%;
+}
+.slogan3
+{
+    position: absolute;
+    z-index: 2;
+    top: 106px;
+    left: 50%;
+    width: 280px;
+    height: 298px;
+    margin-left: -140px;
+    background: url(../img/slogan3.png);
+    background-size: 100%;
+}
+.slogan4
+{
+    position: absolute;
+    z-index: 5;
+    top: 106px;
+    left: 50%;
+    width: 280px;
+    height: 298px;
+    margin-left: -140px;
+    background: url(../img/slogan4.png);
+    background-size: 100%;
+}
+.phand
+{
+    position: absolute;
+    z-index: 99;
+    top: 374px;
+    left: 215px;
+    width: 320px;
+    height: 544px;
+}
+.p1hand1
+{
+    position: absolute;
+    z-index: 10;
+    top: 472px;
+    left: 257px;
+    width: 75px;
+    height: 33px;
+    background: url(../img/p1hand1.png);
+}
+/* p3 */
+.p3stop
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    left: 50%;
+    width: 350px;
+    height: 667px;
+    margin-left: -175px;
+    background: url(../img/p3stop.jpg);
+    background-size: 100%;
+}
+
+.p3zc
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187px;
+}
+/* p4 */
+.p4zc
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187px;
+}
+.p4stop
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    left: 50%;
+    width: 350px;
+    height: 667px;
+    margin-left: -175px;
+    background: url(../img/p4stop.jpg);
+    background-size: 100%;
+}
+/* p5 */
+.p5zc
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187px;
+}
+/* p6 */
+.p6zc
+{
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    width: 298px;
+    height: 544px;
+    margin-left: -149px;
+}
+.line
+{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 375px;
+    height: 667px;
+    margin-left: -187.5px;
+}
+/* p7 */
+.p7zc
+{
+    position: absolute;
+    z-index: 991;
+    top: 83px;
+    left: 50%;
+    width: 310px;
+    height: 470px;
+    margin-left: -155px;
+}
+.vehicle
+{
+    position: absolute;
+    z-index: 992;
+    top: 243px;
+    left: 50%;
+    width: 188px;
+    height: 136px;
+    margin-left: -94px;
+    background: url(../img/vehicle.png);
+    background-size: 400%;
+}
+.btncomm
+{
+    position: absolute;
+    background-size: 100%;
+    z-index: 992;
+    top: 300px;
+    height: 42px;
+    top: 126px;
+}
+.btn_start
+{
+
+    
+    left: 234px;
+    width: 120px;
+    background: url(../img/btn_start.png);
+    @extend .btncomm;
+    
+}
+.btn_share
+{
+
+
+    left: 379px;
+    width: 135px;
+    background: url(../img/btn_share.png);
+     @extend .btncomm;
+
+}
